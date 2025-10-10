@@ -1,0 +1,54 @@
+node_modules
+.idea
+.vscode
+
+# API
+api/node_modules
+api/build
+api/tmp
+
+# Secrets
+api/.env
+api/.env.local
+api/.env.production.local
+api/.env.development.local
+
+# Frontend assets compiled code
+api/public/assets
+
+# Build tools specific
+api/npm-debug.log
+api/yarn-error.log
+
+# Editors specific
+api/.fleet
+api/.idea
+api/.vscode
+
+# Platform specific
+api/.DS_Store
+
+# WEB
+web/.output
+web/.data
+web/.nuxt
+web/.nitro
+web/.cache
+web/dist
+
+# Node dependencies
+web/node_modules
+
+# Logs
+web/logs
+web/*.log
+
+# Misc
+web/.DS_Store
+web/.fleet
+web/.idea
+
+# Local env files
+web/.env
+web/.env.*
+web/!.env.example

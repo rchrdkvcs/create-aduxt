@@ -1,0 +1,25 @@
+{
+  "name": "aduxt",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "api",
+    "web"
+  ],
+  "scripts": {
+    "dev:api": "bun --cwd api dev",
+    "dev:web": "bun --cwd web dev",
+    "dev": "bun run dev:api & bun run dev:web"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "eslint": "^9.37.0",
+    "prettier": "^3.6.2"
+  },
+  "trustedDependencies": [
+    "@aduxt/web",
+    "@parcel/watcher",
+    "@swc/core",
+    "@tailwindcss/oxide"
+  ]
+}
