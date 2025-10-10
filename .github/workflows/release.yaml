@@ -1,0 +1,39 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🧪 Check version consistency
+        run: |
+            PACKAGE_VERSION=$(jq -r '.version' package.json)
+            TAG_VERSION=${GITHUB_REF#refs/tags/v}
+            if [ "$PACKAGE_VERSION" != "$TAG_VERSION" ]; then
+              echo "❌ Version mismatch: package.json=$PACKAGE_VERSION, tag=$TAG_VERSION"
+              exit 1
+            fi
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --no-save
+
+      - name: Authenticate with npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+
+      - name: Publish package to npm
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public

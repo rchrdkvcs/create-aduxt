@@ -16,14 +16,14 @@ RUN bun install --frozen-lockfile
 FROM base AS build-api
 WORKDIR /app
 COPY --from=deps /app ./
-COPY . .
+COPY .. .
 RUN cd api && node ace build --ignore-ts-errors
 
 # -------- Étape 4 : Build Web --------
 FROM base AS build-web
 WORKDIR /app
 COPY --from=deps /app ./
-COPY . .
+COPY .. .
 RUN cd web && bun run build
 
 # -------- Étape 5 : Image finale --------
