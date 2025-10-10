@@ -1,4 +1,4 @@
-name: Publish to npm
+name: 📦 Publish to npm
 
 on:
   release:
@@ -9,31 +9,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: 🛠 Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: 🧪 Check version consistency
-        run: |
-            PACKAGE_VERSION=$(jq -r '.version' package.json)
-            TAG_VERSION=${GITHUB_REF#refs/tags/v}
-            if [ "$PACKAGE_VERSION" != "$TAG_VERSION" ]; then
-              echo "❌ Version mismatch: package.json=$PACKAGE_VERSION, tag=$TAG_VERSION"
-              exit 1
-            fi
-
-      - name: Setup Bun
+      - name: ⚡ Setup Bun
         uses: oven-sh/setup-bun@v2
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: bun install --no-save
 
-      - name: Authenticate with npm
+      - name: 🔧 Update package.json version
+        id: version
+        run: |
+          TAG=${GITHUB_REF#refs/tags/}
+          VERSION=${TAG#v}
+          echo "Detected version: $VERSION"
+
+          # Met à jour la version dans package.json
+          bun x json -I -f package.json -e "this.version='$VERSION'"
+
+          # Vérifie le résultat
+          cat package.json | grep '"version"'
+
+      - name: 🔐 Authenticate with npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
 
-      - name: Publish package to npm
+      - name: 🚀 Publish package to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
