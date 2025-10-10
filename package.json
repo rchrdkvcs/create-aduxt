@@ -1,6 +1,6 @@
 {
   "name": "create-aduxt",
-  "version": "1.1.1",
+  "version": "1.1.3",
   "description": "Template monorepo AdonisJS + Nuxt",
   "type": "module",
   "bin": {
@@ -10,6 +10,13 @@
     "index.js",
     "template/"
   ],
-  "keywords": ["template", "bun", "adonisjs", "nuxt", "monorepo", "fullstack"],
+  "keywords": [
+    "template",
+    "bun",
+    "adonisjs",
+    "nuxt",
+    "monorepo",
+    "fullstack"
+  ],
   "author": "rchrdkvcs"
 }
