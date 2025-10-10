@@ -1,2 +1,2 @@
-@import "../../../../node_modules/tailwindcss/dist/lib.d.mts";
-@import "module.d.mts";
+@import "tailwindcss";
+@import "@nuxt/ui";
