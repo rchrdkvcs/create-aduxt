@@ -1,7 +1,7 @@
 {
   "name": "create-aduxt",
-  "version": "1.1.0",
-  "description": "Template monorepo AdonisJS + Nuxt + Bun",
+  "version": "1.1.1",
+  "description": "Template monorepo AdonisJS + Nuxt",
   "type": "module",
   "bin": {
     "create-aduxt": "./index.js"

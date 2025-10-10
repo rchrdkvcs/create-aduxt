@@ -9,22 +9,32 @@ Un monorepo moderne combinant **AdonisJS 6** (backend) et **Nuxt 4** (frontend) 
 - [PostgreSQL](https://www.postgresql.org/) >= 14
 - [Docker](https://www.docker.com/) (optionnel, pour le déploiement)
 
-## 🚀 Installation
+## 🚀 Démarrage rapide
 
-### 1. Cloner le projet
-
-```bash
-git clone <votre-repo>
-cd aduxt
-```
-
-### 2. Installer les dépendances
+### Créer un nouveau projet
 
 ```bash
-bun install
+npm create aduxt@latest
 ```
 
-### 3. Configuration de l'environnement
+Ou avec d'autres gestionnaires de paquets :
+
+```bash
+# Avec Bun
+bunx create-aduxt@latest
+
+# Avec pnpm
+pnpm create aduxt@latest
+
+# Avec Yarn
+yarn create aduxt
+```
+
+Cela créera un nouveau projet Aduxt dans le répertoire de votre choix avec toute la structure et la configuration nécessaires.
+
+## ⚙️ Configuration
+
+### 1. Configuration de l'environnement
 
 Créer le fichier `.env` pour l'API :
 
@@ -52,7 +62,13 @@ DB_DATABASE=aduxt
 SESSION_DRIVER=cookie
 ```
 
-### 4. Base de données
+### 2. Installer les dépendances
+
+```bash
+bun install
+```
+
+### 3. Base de données
 
 Créer la base de données PostgreSQL :
 
@@ -67,7 +83,7 @@ cd api
 node ace migration:run
 ```
 
-### 5. Générer les types Tuyau
+### 4. Générer les types Tuyau
 
 Pour la communication type-safe entre le frontend et le backend :
 
@@ -76,7 +92,7 @@ cd api
 node ace tuyau:generate
 ```
 
-### 6. Lancer l'application
+### 5. Lancer l'application
 
 **Mode développement (les deux apps) :**
 
