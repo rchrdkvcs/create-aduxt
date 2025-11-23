@@ -20,6 +20,20 @@ console.log(`🚀 Création du projet ${target}...`);
 
 fs.cpSync(templateDir, targetDir, { recursive: true });
 
+console.log("🔧 Configuration des fichiers d'environnement...");
+
+const envFiles = [
+    { example: resolve(targetDir, "apps/api/.env.example"), target: resolve(targetDir, "apps/api/.env") },
+    { example: resolve(targetDir, "apps/web/.env.example"), target: resolve(targetDir, "apps/web/.env") }
+];
+
+envFiles.forEach(({ example, target }) => {
+    if (fs.existsSync(example)) {
+        fs.copyFileSync(example, target);
+        console.log(`   ✓ ${target.replace(targetDir + "/", "")} créé`);
+    }
+});
+
 console.log("📦 Installation des dépendances...");
 execSync("bun install", { cwd: targetDir, stdio: "inherit" });
 
