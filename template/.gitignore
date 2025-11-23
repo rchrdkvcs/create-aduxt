@@ -3,52 +3,52 @@ node_modules
 .vscode
 
 # API
-api/node_modules
-api/build
-api/tmp
+apps/api/node_modules
+apps/api/build
+apps/api/tmp
 
 # Secrets
-api/.env
-api/.env.local
-api/.env.production.local
-api/.env.development.local
+apps/api/.env
+apps/api/.env.local
+apps/api/.env.production.local
+apps/api/.env.development.local
 
 # Frontend assets compiled code
-api/public/assets
+apps/api/public/assets
 
 # Build tools specific
-api/npm-debug.log
-api/yarn-error.log
+apps/api/npm-debug.log
+apps/api/yarn-error.log
 
 # Editors specific
-api/.fleet
-api/.idea
-api/.vscode
+apps/api/.fleet
+apps/api/.idea
+apps/api/.vscode
 
 # Platform specific
-api/.DS_Store
+apps/api/.DS_Store
 
 # WEB
-web/.output
-web/.data
-web/.nuxt
-web/.nitro
-web/.cache
-web/dist
+apps/web/.output
+apps/web/.data
+apps/web/.nuxt
+apps/web/.nitro
+apps/web/.cache
+apps/web/dist
 
 # Node dependencies
-web/node_modules
+apps/web/node_modules
 
 # Logs
-web/logs
+apps/web/logs
 web/*.log
 
 # Misc
-web/.DS_Store
-web/.fleet
-web/.idea
+apps/web/.DS_Store
+apps/web/.fleet
+apps/web/.idea
 
 # Local env files
-web/.env
-web/.env.*
-web/!.env.example
+apps/web/.env
+apps/web/.env.*
+apps/web/!.env.example

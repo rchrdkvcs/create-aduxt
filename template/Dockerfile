@@ -8,8 +8,8 @@ RUN npm install -g bun@latest
 # -------- Étape 2 : Installation des dépendances --------
 FROM base AS deps
 COPY package.json bun.lockb* ./
-COPY api/package.json ./api/
-COPY web/package.json ./web/
+COPY apps/api/package.json ./api/
+COPY apps/web/package.json ./web/
 RUN bun install --frozen-lockfile
 
 # -------- Étape 3 : Build API --------

@@ -25,4 +25,4 @@ execSync("bun install", { cwd: targetDir, stdio: "inherit" });
 
 console.log(`\n✅ Projet créé avec succès !`);
 console.log(`👉 cd ${target}`);
-console.log(`👉 bun dev (ou ce que tu veux comme commande)`);
+console.log(`👉 bun dev`);
