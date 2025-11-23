@@ -3,17 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "workspaces": [
-    "api",
-    "web"
+    "apps/api",
+    "apps/web"
   ],
   "scripts": {
-    "dev:api": "bun --cwd api dev",
-    "dev:web": "bun --cwd web dev",
+    "dev:api": "bun --cwd apps/api dev",
+    "dev:web": "bun --cwd apps/web dev",
     "dev": "bun run dev:api & bun run dev:web"
+  },
+  "dependencies": {
+    "@aduxt/web": "workspace:*",
+    "@aduxt/api": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.9.3",
-    "eslint": "^9.37.0",
+    "eslint": "^9.39.1",
     "prettier": "^3.6.2"
   },
   "trustedDependencies": [
